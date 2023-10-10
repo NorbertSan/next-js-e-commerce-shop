@@ -15,7 +15,7 @@ export const ActiveLink = <T extends string>({
 	className?: string;
 	activeClassName?: string;
 	children: ReactNode;
-	href: Route<T> | URL;
+	href: Route<T>;
 }) => {
 	const pathname = usePathname();
 	const isActive = pathname === href;

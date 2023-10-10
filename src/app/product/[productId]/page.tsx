@@ -1,16 +1,16 @@
+import { getProductById, getProducts } from "@/api/product";
 import { ProductItem } from "@/components/molecules/ProductItem";
-import { type ProductItemType } from "@/types/product";
 
-const getProduct = async (id: string) => {
-	const response = await fetch(`https://naszsklep-api.vercel.app/api/products/${id}`);
-	const product = (await response.json()) as unknown as ProductItemType;
-
-	return product;
-};
+export async function generateStaticParams() {
+	const products = await getProducts();
+	return products.map((product) => ({
+		productId: product.id,
+	}));
+}
 
 export async function generateMetadata({ params }: { params: { productId: string } }) {
 	const { productId } = params;
-	const product = await getProduct(productId);
+	const product = await getProductById(productId);
 
 	return {
 		title: product.title,
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: { productId: string
 
 export default async function ProductPage({ params }: { params: { productId: string } }) {
 	const { productId } = params;
-	const product = await getProduct(productId);
+	const product = await getProductById(productId);
 
 	return <ProductItem product={product} />;
 }
