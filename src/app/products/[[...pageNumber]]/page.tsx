@@ -1,4 +1,5 @@
 import { getProducts } from "@/api/product";
+import { Pagination } from "@/components/molecules/Pagination";
 import { ProductsList } from "@/components/organisms/ProductsList";
 
 export async function generateStaticParams() {
@@ -16,5 +17,10 @@ export default async function ProductsCategoryPageNumberPage({
 	// const pageNumberNumber = Number(pageNumber);
 	const products = await getProducts(1);
 
-	return <ProductsList products={products} />;
+	return (
+		<>
+			<ProductsList products={products} />;
+			<Pagination />
+		</>
+	);
 }

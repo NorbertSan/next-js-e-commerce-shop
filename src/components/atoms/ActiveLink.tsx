@@ -6,6 +6,8 @@ import type { Route } from "next";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
+const removeLastTrailingSlash = (str: string) => str.replace(/\/$/, "");
+
 export const ActiveLink = <T extends string>({
 	className,
 	activeClassName,
@@ -20,7 +22,8 @@ export const ActiveLink = <T extends string>({
 	href: Route<T>;
 }) => {
 	const pathname = usePathname();
-	const isActive = exact || href === "/" ? pathname === href : pathname.startsWith(href);
+	const isActive =
+		exact || href === "/" ? pathname === href : pathname.startsWith(removeLastTrailingSlash(href));
 	const activeClasses = activeClassName ?? `underline`;
 
 	return (

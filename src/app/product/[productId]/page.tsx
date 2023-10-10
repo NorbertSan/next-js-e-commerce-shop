@@ -1,12 +1,12 @@
-import { getProductById, getProducts } from "@/api/product";
+import { getProductById } from "@/api/product";
 import { ProductItem } from "@/components/molecules/ProductItem";
 
-export async function generateStaticParams() {
-	const products = await getProducts();
-	return products.map((product) => ({
-		productId: product.id,
-	}));
-}
+// export async function generateStaticParams() {
+// 	const products = await getProducts();
+// 	return products.map((product) => ({
+// 		productId: product.id,
+// 	}));
+// }
 
 export async function generateMetadata({ params }: { params: { productId: string } }) {
 	const { productId } = params;

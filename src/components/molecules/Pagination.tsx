@@ -1,6 +1,9 @@
-import { type ProductItemType } from "@/types/product";
-
-export const Pagination = ({ product }: { product: ProductItemType }) => {
-	console.log(product);
-	return <section></section>;
+export const Pagination = () => {
+	return (
+		<section>
+			{Array.from({ length: 10 }, (_, index) => (
+				<div key={index}>{index}</div>
+			))}
+		</section>
+	);
 };
