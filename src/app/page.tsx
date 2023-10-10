@@ -1,3 +1,5 @@
+import { ProductsList } from "@/components/organisms/ProductsList";
+
 export default function HomePage() {
-	return <div>Home page</div>;
+	return <ProductsList />;
 }
