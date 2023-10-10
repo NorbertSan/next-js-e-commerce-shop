@@ -24,7 +24,7 @@ export const ActiveLink = <T extends string>({
 	return (
 		<Link
 			href={href}
-			aria-current={isActive}
+			aria-current={isActive || undefined}
 			className={clsx(`text-blue-400 hover:text-blue-600`, className, isActive && activeClasses)}
 		>
 			{children}

@@ -1,5 +1,5 @@
 import Image from "next/image";
 
 export const ProductItemImage = ({ src, alt }: { src: string; alt: string }) => {
-	return <Image src={src} alt={alt} width={300} height={300} />;
+	return <Image className="max-h-[200px]" src={src} alt={alt} width={100} height={100} />;
 };

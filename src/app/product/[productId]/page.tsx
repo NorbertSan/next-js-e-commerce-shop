@@ -1,3 +1,4 @@
+import { ProductItem } from "@/components/molecules/ProductItem";
 import { type ProductItemType } from "@/types/product";
 
 const getProduct = async (id: string) => {
@@ -21,10 +22,5 @@ export default async function ProductPage({ params }: { params: { productId: str
 	const { productId } = params;
 	const product = await getProduct(productId);
 
-	return (
-		<article>
-			<p>{product.description}</p>
-			<pre data-testid="product">{JSON.stringify(product, null, 2)}</pre>;
-		</article>
-	);
+	return <ProductItem product={product} />;
 }

@@ -15,7 +15,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
-			<body className={clsx(inter.className, `flex min-h-screen flex-col gap-10 px-6 py-3`)}>
+			<body
+				className={clsx(
+					inter.className,
+					`mx-auto flex min-h-screen max-w-7xl flex-col gap-10 px-6 py-3`,
+				)}
+			>
 				<Navigation />
 				{children}
 				<Footer />
