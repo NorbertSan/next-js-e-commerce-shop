@@ -10,15 +10,17 @@ export const ActiveLink = <T extends string>({
 	className,
 	activeClassName,
 	children,
+	exact = false,
 	href,
 }: {
 	className?: string;
 	activeClassName?: string;
 	children: ReactNode;
+	exact?: boolean;
 	href: Route<T>;
 }) => {
 	const pathname = usePathname();
-	const isActive = pathname === href;
+	const isActive = exact || href === "/" ? pathname === href : pathname.startsWith(href);
 	const activeClasses = activeClassName ?? `underline`;
 
 	return (
