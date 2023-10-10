@@ -1,5 +1,3 @@
-import { ProductsList } from "@/components/organisms/ProductsList";
-
 export default function HomePage() {
-	return <ProductsList />;
+	return <div>HOME</div>;
 }

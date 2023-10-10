@@ -2,9 +2,8 @@ import { ProductsList } from "@/components/organisms/ProductsList";
 import { type ProductItemType } from "@/types/product";
 
 const getProducts = async () => {
-	const products = (await fetch(
-		"https://naszsklep-api.vercel.app/api/products?take=20",
-	)) as unknown as ProductItemType[];
+	const response = await fetch("https://naszsklep-api.vercel.app/api/products?take=20");
+	const products = (await response.json()) as unknown as ProductItemType[];
 
 	return products;
 };

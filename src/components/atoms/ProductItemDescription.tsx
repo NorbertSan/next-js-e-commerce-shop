@@ -1,10 +1,8 @@
 export const ProductItemDescription = ({
 	description,
-
 	price,
 }: {
 	description: string;
-
 	price: number;
 }) => {
 	return (
