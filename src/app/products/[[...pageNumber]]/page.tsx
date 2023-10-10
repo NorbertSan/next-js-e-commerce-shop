@@ -12,14 +12,13 @@ export default async function ProductsCategoryPageNumberPage({
 }: {
 	params: { pageNumber: string[] };
 }) {
-	console.log(params);
-	// const { pageNumber } = params;
-	// const pageNumberNumber = Number(pageNumber);
-	const products = await getProducts(1);
+	const pageNumber = params.pageNumber?.[0];
+	const pageNumberNumber = Number(pageNumber) || 1;
+	const products = await getProducts(pageNumberNumber);
 
 	return (
 		<>
-			<ProductsList products={products} />;
+			<ProductsList products={products} />
 			<Pagination />
 		</>
 	);

@@ -4,7 +4,7 @@ const OFFSET = 20;
 
 export const getProducts = async (pageNumber: number = 0) => {
 	const response = await fetch(
-		`https://naszsklep-api.vercel.app/api/products?take=20&offset=${pageNumber * OFFSET}`,
+		`https://naszsklep-api.vercel.app/api/products?take=20&offset=${(pageNumber - 1) * OFFSET}`,
 	);
 	const products = (await response.json()) as unknown as ProductItemType[];
 
