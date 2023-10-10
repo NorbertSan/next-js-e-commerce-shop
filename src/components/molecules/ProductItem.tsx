@@ -1,16 +1,14 @@
 import { ProductItemHeading } from "../atoms/ProductItemHeading";
 import { ProductItemDescription } from "@/components/atoms/ProductItemDescription";
 import { ProductItemImage } from "@/components/atoms/ProductItemImage";
+import { type ProductItemType } from "@/types/product";
 
-export const ProductItem = () => {
+export const ProductItem = ({ product }: { product: ProductItemType }) => {
 	return (
 		<article className="flex flex-col items-center">
-			<ProductItemHeading>Title</ProductItemHeading>
-			<ProductItemImage
-				src="https://images.pexels.com/photos/5220/water-sign-arrow-direction.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-				alt="koszulka"
-			/>
-			<ProductItemDescription description="desc" price={20} />
+			<ProductItemHeading>{product.title}</ProductItemHeading>
+			<ProductItemImage src={product.image} alt={product.title} />
+			<ProductItemDescription description={product.description} price={product.price} />
 		</article>
 	);
 };
